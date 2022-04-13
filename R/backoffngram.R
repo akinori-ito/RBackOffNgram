@@ -163,11 +163,12 @@ Ngram_node <- R6::R6Class("Ngram_node",
       }
       n1 <- self$getCount(words)
       n2 <- self$getCount(words[1:(length(words)-1)])
-      a <- self$getAlpha0(words[1:(length(words)-1)])
       if (n1 > 0) {
+        a <- self$getAlpha0(words[1:(length(words)-1)])
         return(a[1]*n1/n2)
       }
       if (n2 > 0) {
+        a <- self$getAlpha0(words[1:(length(words)-1)])
         return((1-a[1])*a[2]*self$boprob0(words[2:length(words)]))
       }
       self$boprob0(words[2:length(words)])
